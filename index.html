@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GiG | Registration</title>
+</head>
+<body>
+  <header>
+    <h1>Register</h1>
+    <p>&#123;Username&#125; please finalise your registration before you can proceed</p>
+  </header>
+  <form action="" method="POST" id="reg-form">
+    <!-- Group label and input fields that "belong" together -->
+    <fieldset form="reg-form">
+      <!-- Heading used for screen readers, will be hidden for display with CSS -->
+      <legend>Personal</legend>
+      <label for="firstName">First name</label>
+      <input type="text" placeholder="FIRST NAME" id="firstName">
+      <label for="lastName">Last name</label>
+      <input type="text" placeholder="LAST NAME" id="lastName">
+      <label for="birthdate">Date of birth</label>
+      <input type="date" placeholder="DATE OF BIRTH" id="birthdate">
+      <fieldset>
+        <legend>Sex</legend>
+        <p>
+          <input type="radio" id="male" value="male" name="sex">
+          <label for="male">Male</label>
+        </p>
+        <p>
+          <input type="radio" id="female" value="female" name="sex">
+          <label for="female">Female</label>
+        </p>
+      </fieldset>
+    </fieldset>
+    <fieldset>
+      <legend>Adress</legend>
+      <label for="address">Address</label>
+      <input type="text" placeholder="ADDRESS" id="address">
+      <label for="city">Address</label>
+      <input type="text" placeholder="CITY" id="city">
+      <label for="country">Country</label>
+      <input type="text" placeholder="COUNTRY" id="country">
+      <label for="countryCode">Country code</label>
+      <input type="number" placeholder="+46" id="countryCode">
+      <label for="phone">Phone number</label>
+      <input type="tel" placeholder="PHONE NUMBER" id="phone">
+    </fieldset>
+    <button type="submit">Complete registration</button>
+    <p>You will then confirm your deposit</p>
+  </form>
+</body>
+</html>
