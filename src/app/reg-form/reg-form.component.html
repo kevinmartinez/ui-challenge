@@ -1,0 +1,57 @@
+<p>
+  reg-form works!
+</p>
+<!-- Using indentation of 2 spaces as 1 tab :) Prefer shorter indentation, mostly because of width readability -->
+<form action="" method="post" id="reg-form">
+  <h1>Register</h1>
+  <p>{{username}} please finalise your registration before you can proceed</p>
+  <!-- Group label and input fields that "belong" together -->
+  <fieldset form="reg-form">
+    <!-- Heading used for screen readers, will be hidden for display with CSS -->
+    <legend>Personal</legend>
+    <p>
+      <label for="firstName">First name</label>
+      <input type="text" placeholder="FIRST NAME" id="firstName">
+    </p>
+    <p>
+      <label for="lastName">Last name</label>
+      <input type="text" placeholder="LAST NAME" id="lastName">
+    </p>
+    <p>
+      <label for="birthdate">Date of birth</label>
+      <input type="date" placeholder="DATE OF BIRTH" id="birthdate">
+    </p>
+    <p>
+      <input type="radio" id="male" value="male" name="sex">
+      <label for="male">Male</label>
+      <br>
+      <input type="radio" id="female" value="female" name="sex">
+      <label for="female">Female</label>
+    </p>
+  </fieldset>
+  <fieldset form="reg-form">
+      <legend>Adress</legend>
+    <p>
+      <label for="address">Address</label>
+      <input type="text" placeholder="ADDRESS" id="address">
+    </p>
+    <p>
+      <label for="city">Address</label>
+      <input type="text" placeholder="CITY" id="city">
+    </p>
+    <p>
+      <label for="country">Country</label>
+      <input type="text" placeholder="COUNTRY" id="country">
+    </p>
+    <p>
+      <label for="countryCode">Country code</label>
+      <input type="number" placeholder="+46" id="countryCode">
+    </p>
+    <p>
+      <label for="phone">Phone number</label>
+      <input type="tel" placeholder="PHONE NUMBER" id="phone">
+    </p>
+  </fieldset>
+  <button type="submit">Complete registration</button>
+  <p>You will then confirm your deposit</p>
+</form>
