@@ -1,0 +1,54 @@
+input {
+  border: 2px solid $green;
+}
+
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+
+.reg-form__main-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.reg-form__intro {
+  font-size: 0.7rem;
+}
+
+.form__heading {
+  max-width: 85%;
+  margin: 35px auto 0;
+}
+
+.reg-form__fieldset {
+  border: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.reg-form__label-heading {
+  display: block;
+  font : .5rem $main-font, sans-serif;
+}
+
+.reg-form__label-heading--sex {
+  display: inline-block;
+  font : .5rem $main-font, sans-serif;
+}
+
+.reg-form__input {
+  max-width: 120px;
+  padding: 10px 5px;
+  font-size: 0.7rem;
+  background: none;
+  color: #fff;
+}
+
+input::placeholder {
+  color: #fff;
+}

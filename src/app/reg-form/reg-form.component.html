@@ -1,55 +1,55 @@
-<p>
-  reg-form works!
-</p>
 <!-- Using indentation of 2 spaces as 1 tab :) Prefer shorter indentation, mostly because of width readability -->
-<form action="" method="post" id="reg-form">
-  <h1>Register</h1>
-  <p>{{username}} please finalise your registration before you can proceed</p>
+<form action="" method="post" id="regForm" class="reg-form">
+  <div class="form__heading">
+    <h1 class="reg-form__main-heading center">Register</h1>
+    <p class="reg-form__intro center">{{username}} please finalise your registration before you can proceed</p>
+  </div>
   <!-- Group label and input fields that "belong" together -->
-  <fieldset form="reg-form">
+  <fieldset form="reg-form" class="reg-form__fieldset">
     <!-- Heading used for screen readers, will be hidden for display with CSS -->
-    <legend>Personal</legend>
-    <p>
-      <label for="firstName">First name</label>
-      <input type="text" placeholder="FIRST NAME" id="firstName">
+    <legend class="reg-form__legend-heading visuallyhidden">Personal</legend>
+    <p class="column">
+      <label for="firstName" class="reg-form__label-heading">First name</label>
+      <input type="text" placeholder="FIRST NAME" id="firstName" class="reg-form__input">
     </p>
-    <p>
-      <label for="lastName">Last name</label>
-      <input type="text" placeholder="LAST NAME" id="lastName">
+    <p class="column">
+      <label for="lastName" class="reg-form__label-heading">Last name</label>
+      <input type="text" placeholder="LAST NAME" id="lastName" class="reg-form__input">
     </p>
-    <p>
-      <label for="birthdate">Date of birth</label>
-      <input type="date" placeholder="DATE OF BIRTH" id="birthdate">
+    <p class="column">
+      <label for="birthdate" class="reg-form__label-heading">Date of birth</label>
+      <input type="date" placeholder="DATE OF BIRTH" id="birthdate" class="reg-form__input">
     </p>
-    <p>
-      <input type="radio" id="male" value="male" name="sex">
-      <label for="male">Male</label>
+    <p class="column orientation">
+      <label class="visuallyhidden">Sex orientation</label>
+      <input type="radio" id="male" value="male" name="sex" class="reg-form__sex-input">
+      <label for="male" class="reg-form__label-heading--sex">Male</label>
       <br>
-      <input type="radio" id="female" value="female" name="sex">
-      <label for="female">Female</label>
+      <input type="radio" id="female" value="female" name="sex" class="reg-form__sex-input">
+      <label for="female" class="reg-form__label-heading--sex">Female</label>
     </p>
   </fieldset>
-  <fieldset form="reg-form">
-      <legend>Adress</legend>
-    <p>
-      <label for="address">Address</label>
-      <input type="text" placeholder="ADDRESS" id="address">
+  <fieldset form="reg-form"  class="reg-form__fieldset">
+    <legend class="reg-form__legend-heading">Adress</legend>
+    <p class="column">
+      <label for="address" class="reg-form__label-heading">Address</label>
+      <input type="text" placeholder="ADDRESS" id="address" class="reg-form__input">
     </p>
-    <p>
-      <label for="city">Address</label>
-      <input type="text" placeholder="CITY" id="city">
+    <p class="column">
+      <label for="city" class="reg-form__label-heading">Address</label>
+      <input type="text" placeholder="CITY" id="city" class="reg-form__input">
     </p>
-    <p>
-      <label for="country">Country</label>
-      <input type="text" placeholder="COUNTRY" id="country">
+    <p class="column">
+      <label for="country" class="reg-form__label-heading">Country</label>
+      <input type="text" placeholder="COUNTRY" id="country" class="reg-form__input">
     </p>
-    <p>
-      <label for="countryCode">Country code</label>
-      <input type="number" placeholder="+46" id="countryCode">
+    <p class="column">
+      <label for="countryCode" class="reg-form__label-heading">Country code</label>
+      <input type="number" placeholder="+46" id="countryCode" class="reg-form__input">
     </p>
-    <p>
-      <label for="phone">Phone number</label>
-      <input type="tel" placeholder="PHONE NUMBER" id="phone">
+    <p class="column">
+      <label for="phone" class="reg-form__label-heading">Phone number</label>
+      <input type="tel" placeholder="PHONE NUMBER" id="phone" class="reg-form__input">
     </p>
   </fieldset>
   <button type="submit">Complete registration</button>

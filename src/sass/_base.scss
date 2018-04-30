@@ -1,0 +1,20 @@
+body {
+  text-transform: uppercase;
+  font-family: $main-font;
+  background-color: #000;
+  background-image: url('../app/img/kaboo.png');
+  background-size: contain;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  z-index: 4;
+  color: #fff;
+}
+
+button, input, select, textarea {
+  font-family : inherit;
+  font-size   : 100%;
+}
+
+.center {
+  text-align: center;
+}
