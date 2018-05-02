@@ -1,30 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { states } from '../data-model';
 
 @Component({
   selector: 'app-reg-form',
   templateUrl: './reg-form.component.html',
   styleUrls: ['./reg-form.component.css']
 })
-export class RegFormComponent implements OnInit {
+export class RegFormComponent {
   // placeholder for user
-  user = {
-    name: {
-       first: 'Kevin',
-       last: 'Martinez'
-    }
- };
+  heroForm: FormGroup;
+  states = states;
 
-  submitted = false;
+  constructor(private fb: FormBuilder) {
+    this.createForm();
+  }
 
-  onSubmit() { this.submitted = true; }
-
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.user.name.first); }
-
-
-  constructor() { }
-
-  ngOnInit() {
+  createForm() {
+    this.heroForm = this.fb.group({
+      name: ['', Validators.required],
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      power: '',
+      sidekick: ''
+    });
   }
 
 }

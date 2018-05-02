@@ -21,32 +21,45 @@ input {
 }
 
 .form__heading {
-  max-width: 85%;
-  margin: 35px auto 0;
-}
-
-.reg-form__fieldset {
-  border: none;
+  margin-top: 35px;
+  margin-bottom: 20px;
 }
 
 .reg-form__label-heading {
   display: block;
-  font : .5rem $main-font, sans-serif;
+  font-size: .4rem;
 }
 
 .reg-form__label-heading--sex {
   display: inline-block;
-  font : .5rem $main-font, sans-serif;
+  font-size: .5rem;
 }
 
-.reg-form__input {
-  max-width: 120px;
-  padding: 10px 5px;
-  font-size: 0.7rem;
-  background: none;
-  color: #fff;
-}
+
 
 input::placeholder {
   color: #fff;
+}
+
+.btn {
+  padding: 10px;
+  color: #fff;
+  display: block;
+  background: transparent;
+  margin-top: 20px;
+  width: 100%;
+  @media only screen and (min-width: 420px) {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+	}
+}
+
+.validation-container {
+  display: inline-block;
+  position: relative;
+}
+
+.show {
+  right: 5px;
 }
