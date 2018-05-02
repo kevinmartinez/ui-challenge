@@ -11,7 +11,7 @@ input {
 }
 
 .reg-form__main-heading {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -27,8 +27,6 @@ input {
 
 .reg-form__fieldset {
   border: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 .reg-form__label-heading {

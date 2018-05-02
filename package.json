@@ -10,6 +10,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",

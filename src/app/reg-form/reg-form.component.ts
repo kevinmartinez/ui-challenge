@@ -7,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegFormComponent implements OnInit {
   // placeholder for user
-  username = 'Kevin'
+  user = {
+    name: {
+       first: 'Kevin',
+       last: 'Martinez'
+    }
+ };
+
+  submitted = false;
+
+  onSubmit() { this.submitted = true; }
+
+  // TODO: Remove this when we're done
+  get diagnostic() { return JSON.stringify(this.user.name.first); }
+
+
   constructor() { }
 
   ngOnInit() {

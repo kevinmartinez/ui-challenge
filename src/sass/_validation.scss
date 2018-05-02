@@ -1,0 +1,23 @@
+.required {
+  border: 2px solid red;
+}
+
+.focus {
+  border: 2px solid white;
+}
+
+.success {
+  border: 2px soldi green;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border: 2px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border: 2px solid #a94442; /* red */
+}
+
+input:focus {
+  border: 2px solid white;;
+}
