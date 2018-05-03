@@ -6,14 +6,12 @@ import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
 
 import { AppComponent } from './app.component';
 import { RegFormComponent } from './reg-form/reg-form.component';
-import { HeroesComponent } from './heroes/heroes.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegFormComponent,
-    HeroesComponent
   ],
   imports: [
     BrowserModule,

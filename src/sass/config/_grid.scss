@@ -1,8 +1,10 @@
-.container {
+// I went with CSS Grid as layout option.
+.grid-wrapper { // This grid-wrapper wraps two own grids, i used this for layout consistency and to make use of grid nesting, to make CSS Grid and latest Angular work together to support IE11 was quite challenging, so the end result of the grid is quite verbose, the big catch is that, allthough CSS Grid is supported in IE11, it requires all columns to be explicit layed out from start to begin and include rows. The tradeoff is worth it imo and the syntax can be improved a lot i think, for example with different mixins and/or functions
   @include display-grid;
   grid-gap: 10px;
   @media (min-width: 700px) {
     grid-template-columns: repeat(2, 1fr);
+    // Autoprefixer does not cover all markup needed for full IE11 support, some of the ms
     -ms-grid-columns: 1fr 1fr;
     -ms-grid-rows: 1fr;
   }
@@ -42,6 +44,9 @@
   @media (min-width: 700px) {
     @include grid-child(2, 3, 1, 2);
   }
+  // @include media-tablet {
+  //   @include grid-child(2, 3, 1, 2);
+  // }
 }
 
 

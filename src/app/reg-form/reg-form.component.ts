@@ -9,7 +9,7 @@ import { states } from '../data-model';
 })
 export class RegFormComponent {
   // placeholder for user
-  heroForm: FormGroup;
+  userForm: FormGroup;
   states = states;
 
   constructor(private fb: FormBuilder) {
@@ -17,7 +17,7 @@ export class RegFormComponent {
   }
 
   createForm() {
-    this.heroForm = this.fb.group({
+    this.userForm = this.fb.group({
       name: ['', Validators.required],
       street: ['', Validators.required],
       city: '',

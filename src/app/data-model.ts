@@ -1,6 +1,8 @@
-export class Hero {
+// This is used for Mock data when creating the forms and binding them to Angular for validation and such
+export class User {
   id = 0;
-  name = '';
+  firstName = '';
+  lastName = '';
   addresses: Address[];
 }
 
@@ -11,10 +13,11 @@ export class Address {
   zip    = '';
 }
 
-export const heroes: Hero[] = [
+export const users: User[] = [
   {
     id: 1,
-    name: 'Whirlwind',
+    firstName: 'Kevin',
+    lastName: 'Martinez',
     addresses: [
       {street: '123 Main',  city: 'Anywhere', state: 'CA',  zip: '94801'},
       {street: '456 Maple', city: 'Somewhere', state: 'VA', zip: '23226'},
@@ -22,14 +25,16 @@ export const heroes: Hero[] = [
   },
   {
     id: 2,
-    name: 'Bombastic',
+    firstName: 'Emelie',
+    lastName: 'Liffner',
     addresses: [
       {street: '789 Elm',  city: 'Smallville', state: 'OH',  zip: '04501'},
     ]
   },
   {
     id: 3,
-    name: 'Magneta',
+    firstName: 'Maja',
+    lastName: 'Bladström',
     addresses: [ ]
   },
 ];

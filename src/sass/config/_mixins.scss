@@ -1,4 +1,10 @@
 // Mixins
+@mixin media-tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
 @mixin display-grid {
   display: -ms-grid;
   display: grid;

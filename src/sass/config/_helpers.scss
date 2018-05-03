@@ -1,3 +1,11 @@
+// This helper class is used on the legend element in our form fieldset
+// A form is not considered "semantic" if it does not include one (or more)
+// fieldset elements, and they should be followed by a legend element,
+// that acts as both heading and the best way to orient a client that
+// is using screen reading tools. So i think that this makes this element
+// mandatory, i could have tried to use this as the register heading, but
+// wanted it to be able to be set more specific targetting screen readers
+// so i hide the element with this selector
 .hidden {
   position: absolute;
   overflow: hidden;
@@ -6,12 +14,15 @@
   margin: -1px; padding: 0; border: 0;
 }
 
+// I find helper classes like these very handy, but they can be repeated a lot, and much more during larger projects i guess. I think this cold be refactored and included in more advanced Sass/BEM mixins and/or functions.
 .center {
   text-align: center;
 }
 
+// I wanted to have a pure CSS layer on top of the background images
 .layer {
   background-color: rgba(0, 0, 0 , .8);
-  height: 100vh;
+  height: 100%;
   padding-top: 1px;
+  padding-bottom: 1px;
 }

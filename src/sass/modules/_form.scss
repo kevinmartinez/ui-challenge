@@ -1,4 +1,4 @@
-.reg-form__input {
+.form__input {
   padding: 10px 5px;
   font-size: 0.7rem;
   background: none;
@@ -17,17 +17,17 @@
   margin-bottom: 20px;
 }
 
-.reg-form__label-heading {
+.form__label {
   display: block;
   font-size: .4rem;
 }
 
-.reg-form__label-heading--sex {
+.form__label--sex {
   display: inline-block;
   font-size: .5rem;
 }
 
-.reg-form__main-heading {
+.form__main-heading {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 20px;
