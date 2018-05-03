@@ -5,9 +5,20 @@
   }
 }
 
+// I like to use REM when doing font-sizes, mostly
+// because of the nature of parent and children that both have an em
+// declaration. EM is good used in margins and paddings, so that
+// is one thing i would have gone for with more time
+// Meanwhile, i always tend to relate to pixels when calculating rems
+// and so on, so there are some nice mixins for converting pixels
+// to em or rem
+@function rem($pixel, $base:16px) {
+  @return($pixel / $base) * 1rem;
+}
+
 @mixin display-grid {
   display: -ms-grid;
-  display: grid;
+  display:     grid;
 }
 
 @mixin grid-child ($col-start, $col-end, $row-start, $row-end) {
@@ -15,6 +26,12 @@
   -ms-grid-column-span: $col-end - $col-start;
   -ms-grid-row: $row-start;
   -ms-grid-row-span: $row-end - $row-start;
-  grid-column: #{$col-start}/#{$col-end};
-  grid-row: #{$row-start}/#{$row-end};
+      grid-column: #{$col-start}/#{$col-end};
+      grid-row: #{$row-start}/#{$row-end};
+      // row-gap does not work in IE11, but putting this
+      // media query inside of the mixins makes it fallback quite good
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* fallback instead of grid-gap */
+        padding: 10px;
+      }
 }

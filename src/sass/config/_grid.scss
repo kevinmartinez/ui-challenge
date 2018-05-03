@@ -1,10 +1,12 @@
 // I went with CSS Grid as layout option.
-.grid-wrapper { // This grid-wrapper wraps two own grids, i used this for layout consistency and to make use of grid nesting, to make CSS Grid and latest Angular work together to support IE11 was quite challenging, so the end result of the grid is quite verbose, the big catch is that, allthough CSS Grid is supported in IE11, it requires all columns to be explicit layed out from start to begin and include rows. The tradeoff is worth it imo and the syntax can be improved a lot i think, for example with different mixins and/or functions
+.grid-wrapper {
+  // This grid-wrapper wraps two own grids, i used this for layout consistency and to make use of grid nesting, to make CSS Grid and latest Angular work together to support IE11 was quite challenging, so the end result of the grid is quite verbose, the big catch is that, allthough CSS Grid is supported in IE11, it requires all columns to be explicit layed out from start to begin and include rows. The tradeoff is worth it imo and the syntax can be improved a lot i think, for example with different mixins and/or functions
   @include display-grid;
   grid-gap: 10px;
-  @media (min-width: 700px) {
+
+  @include media-tablet {
     grid-template-columns: repeat(2, 1fr);
-    // Autoprefixer does not cover all markup needed for full IE11 support, some of the ms
+    // Autoprefixer does not cover all markup needed for full IE11 support
     -ms-grid-columns: 1fr 1fr;
     -ms-grid-rows: 1fr;
   }
@@ -16,41 +18,36 @@
   grid-template-columns: repeat(4, 1fr);
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
   -ms-grid-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  // Reset OL styles
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+
   @include grid-child(1, 3, 1, 2);
-  @media (min-width: 700px) {
+
+  @include media-tablet {
     @include grid-child(1, 2, 1, 2);
   }
-}
+  // This is included here because i started to test the BEM modifier selectors nested
+  // in Sass, but it is still heavy repeated code, with more time i would have prioritized this,
+  // but having it in the grid Sass partial and with a big TODO in it is ok for now since
+  // the Grid seem to work really good in IE11
+  &--half {
+    @include display-grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 
-.grid-half {
-  @include display-grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  // Reset OL styles
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  @include grid-child(1, 3, 2, 3);
-  @media (min-width: 700px) {
-    @include grid-child(2, 3, 1, 2);
+    @include grid-child(1, 3, 2, 3);
+
+    @include media-tablet {
+      @include grid-child(2, 3, 1, 2);
+    }
   }
-  // @include media-tablet {
-  //   @include grid-child(2, 3, 1, 2);
-  // }
 }
 
-
-
+// All styles for the CSS Grid, they call a mixin that calculates
+// the col start, col end, row, start, & row end, as well as a calculation
+// needed for IE11, since IE11 need two grid placement declarations
 .gi-1 {
   @include grid-child(1, 3, 1, 2);
   // -ms-grid-column: 1;
@@ -69,6 +66,8 @@
 .gi-4 {
   //grid-column: span 4;
   @include grid-child(4, 5, 2, 3);
+  // This push the radio buttons position to bottom of its row
+  align-self: end;
 }
 
 .gi-5 {

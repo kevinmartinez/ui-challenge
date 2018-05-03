@@ -1,3 +1,22 @@
+// Some of my form validators match the native inputs, but most
+// Of them refers to Angulars validator classes, these classes are bound both to the native
+// HTML attributes like "required"
+// but is also it's own Angular validator API
+// There were a lot of approaches to validating in latest Angular
+// I would say that i think that the approach of Reactive Forms,
+// And reactive driven Angular programming looks most appealing
+// But i followed the docs and some of the official guides on the
+// Angular site and tested Template driven Angular as well
+// Form validating overall, (and form styling) is always a task
+// So i settled for a few different easy approaches and tried to treat
+// the whole project as an Angular project, thus needing to think a
+// bit about other things then the validation with the time at hand.
+// With more time i would have created more custom validations,,
+// Both template driven and reactive style seem to have a lot of good
+// options
+// And made the whole form more "Modular", Also i see a possibility
+// to use CSS/SCSS besides their js/ts/angular components, like
+// in react when using Modular CSS
 .required {
   border: 10px solid #a94442;
 }
@@ -7,18 +26,18 @@
 }
 
 .success {
-  border: 2px soldi green;
+  border: 2px solid green;
 }
 
-.ng-valid[required], .ng-valid.required  {
-  border: 2px solid #42A948; /* green */
+.ng-valid[required], .ng-valid.required {
+  border: 2px solid #42a948; /* green */
 }
 
-.ng-pristine.required, .ng-pristine[required],{
+.ng-pristine.required, .ng-pristine[required] {
   border: 2px solid #000;
 }
 
-.ng-invalid:not(form)  {
+.ng-invalid:not(form) {
   border: 2px solid #a94442; /* red */
 }
 

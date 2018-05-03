@@ -1,6 +1,6 @@
 <!-- Using indentation of 2 spaces as 1 tab :) Prefer shorter indentation, mostly because of width readability -->
 <div class="layer">
-<form action="" method="post" id="form" class="form" [formGroup]="regForm">
+<form action="" method="post" id="form" class="form" [formGroup]="userForm">
   <div class="form__heading center">
     <h1 class="form__main-heading">Register</h1>
     <p class="form__intro"> please finalise your registration before you can proceed</p>
@@ -26,14 +26,14 @@
           <input type="date" placeholder="DATE OF BIRTH" id="birthdate" class="form__input" required>
         </li>
         <li class="gi-4">
-          <ul class="orientation">
+          <ul>
             <li>
-              <input type="radio" id="male" value="male" name="sex" class="form__sex-input">
-              <label for="male" class="form__label-heading--sex">Male</label>
+              <input type="radio" id="male" value="male" name="sex" class="form__input--radio">
+              <label for="male" class="form__label--radio">Male</label>
             </li>
             <li>
-              <input type="radio" id="female" value="female" name="sex" class="form__sex-input">
-              <label for="female" class="form__label--sex">Female</label>
+              <input type="radio" id="female" value="female" name="sex" class="form__input--radio">
+              <label for="female" class="form__label--radio">Female</label>
             </li>
           </ul>
         </li>
@@ -42,7 +42,7 @@
           <input type="text" placeholder="ADDRESS" id="address" class="form__input" formControlName="street">
         </li>
       </ol>
-      <ol class="grid-half">
+      <ol class="grid--half">
         <li class="gi-6">
           <label for="postCode" class="form__label">Post code</label>
           <input type="text" placeholder="POST CODE" id="postCode" class="form__input" formControlName="postCode">

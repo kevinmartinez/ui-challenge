@@ -1,24 +1,33 @@
-// This is where i style all base elements, so when styling a bare element, with its own selector. Since these styles applies to the whole app, the rules here should be sparse
+// This is where i style all base elements, so when styling a bare
+// element, with its own selector. Since these styles applies to the whole app,
+// the rules here should be sparse. Most resets that are not in the
+// normalize file goes here
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #000;
+  background-color: $black;
   background-image: url('../app/img/kaboo.png');
+  @media (min-width: 560px) and (orientation: landscape) {
+    background: red;
+    border: 50px solid yellow;
+}
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
   background-attachment: fixed;
   background-position-y: 1px;
   font-family: $font-family-main;
-  color: #fff;
+  color: $white;
   margin: 0;
+  text-transform: uppercase;
 }
 
 button, input, select, textarea {
   font-family: inherit;
   font-size: 100%;
+  text-transform: uppercase;
 }
 
 fieldset {
@@ -28,6 +37,9 @@ fieldset {
   min-width: 0;
 }
 
-input {
-  border: 2px solid $green;
+ol,
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

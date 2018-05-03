@@ -18,13 +18,12 @@ export class RegFormComponent {
 
   createForm() {
     this.userForm = this.fb.group({
-      name: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       street: ['', Validators.required],
       city: '',
       postCode: ['', Validators.required],
       zip: '',
-      power: '',
-      sidekick: ''
     });
   }
 

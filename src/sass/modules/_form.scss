@@ -1,34 +1,49 @@
-.form__input {
-  padding: 10px 5px;
-  font-size: 0.7rem;
-  background: none;
-  color: #fff;
-  width: 100%;
-}
+.form {
+  width: 90%;
+  max-width: 960px;
+  margin: auto;
 
-.orientation {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+  &__main-heading {
+    font-size: rem(18px);
+    font-weight: $font--bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
 
-.form__heading {
-  margin-top: 35px;
-  margin-bottom: 20px;
-}
+  &__heading {
+    margin-top: 35px;
+    margin-bottom: 20px;
+  }
 
-.form__label {
-  display: block;
-  font-size: .4rem;
-}
+  &__intro {
+    font-size: rem(12px)
+  }
 
-.form__label--sex {
-  display: inline-block;
-  font-size: .5rem;
-}
+  &__label {
+    display: block;
+    font-size: rem(8px);
+    margin-bottom: 2px;
+    &--radio {
+      display: inline-block;
+      font-size: rem(10px);
+    }
+  }
 
-.form__main-heading {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 20px;
+  &__input {
+    border: 2px solid $green;
+    padding: 10px 5px;
+    font-size: 0.7rem;
+    background: none;
+    color: $white;
+    width: 100%;
+
+    &::placeholder {
+      color: red;
+      z-index: 5;
+    }
+
+    &--radio {
+      color: $black;
+    }
+  }
 }

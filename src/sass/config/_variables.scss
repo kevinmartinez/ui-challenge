@@ -1,5 +1,19 @@
-$main-black: #f33;
+$black: #000;
+$white: #fff;
 $green: #284131;
+$red: #ff4040;
+
 // Creating a font stack variable
-$font-family-main: 'Montserrat', 'Arial', sans-serif;
+$font-family-main: "Montserrat", "Arial", sans-serif;
+
+// Variables for font-weights, good to visually see what font-weights
+// we actually can use, based on the google font link in main index.html
+$font--x-light: 300;
+$font--light: 400;
+$font--medium: 600;
+$font--bold: 700;
+$font--x-bold: 800;
+
+// Breakpoint after testing good natural layout break
 $tablet: 620px;
+$desktop: 960px;
