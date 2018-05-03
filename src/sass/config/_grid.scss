@@ -1,57 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #000;
-  background-image: url('../app/img/kaboo.png');
-  // background-repeat:no-repeat;
-  // background-size:contain;
-  // background-position:center;
-  // text-transform: uppercase;
-  background-repeat:no-repeat;
-  -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size:cover;
-  background-size:cover;
-  background-position:center;
-  background-attachment: fixed;
-  background-position-y: 1px;
-
-
-  font-family: $font-family-main;
-  // background-image: url('../app/img/kaboo.png');
-  // background-size: contain;
-  // background-position: fixed;
-  // background-repeat: no-repeat;
-  color: #fff;
-  margin: 0;
-}
-
-.layer {
-  background-color: rgba(0, 0, 0 , .8);
-  height: 100vh;
-  padding-top: 1px;
-}
-
-
-button, input, select, textarea {
-  font-family : inherit;
-  font-size   : 100%;
-}
-
-.center {
-  text-align: center;
-}
-
-
-// .first-half {
-//   display: grid;
-//   grid-gap: 10px;
-//   border: 10px solid yellow;
-//   grid-template-columns: repeat(auto-fill, 100px)
-// }
-
 .container {
   @include display-grid;
   grid-gap: 10px;
@@ -98,11 +44,7 @@ button, input, select, textarea {
   }
 }
 
-.orientation {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+
 
 .gi-1 {
   @include grid-child(1, 3, 1, 2);
@@ -146,26 +88,4 @@ button, input, select, textarea {
 
 .gi-10 {
   @include grid-child(3, 5, 3, 4);
-}
-
-.reg-form {
-  width: 90%;
-  max-width: 960px;
-  margin: auto;
-}
-
-fieldset {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-}
-
-
-.reg-form__input {
-  padding: 10px 5px;
-  font-size: 0.7rem;
-  background: none;
-  color: #fff;
-  width: 100%;
 }

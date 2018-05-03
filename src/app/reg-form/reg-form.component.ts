@@ -19,9 +19,9 @@ export class RegFormComponent {
   createForm() {
     this.heroForm = this.fb.group({
       name: ['', Validators.required],
-      street: '',
+      street: ['', Validators.required],
       city: '',
-      state: '',
+      postCode: ['', Validators.required],
       zip: '',
       power: '',
       sidekick: ''

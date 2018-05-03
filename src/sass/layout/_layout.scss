@@ -1,0 +1,13 @@
+.reg-form {
+  width: 90%;
+  max-width: 960px;
+  margin: auto;
+}
+
+.reg-form__intro {
+  font-size: 0.7rem;
+}
+
+input::placeholder {
+  color: #fff;
+}

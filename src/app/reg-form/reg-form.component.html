@@ -9,16 +9,17 @@
   <fieldset form="reg-form" class="reg-form__fieldset">
 
     <!-- Heading used for screen readers, will be hidden for display with CSS -->
-    <legend class="reg-form__legend-heading visuallyhidden">Personal</legend>
+    <legend class="reg-form__legend-heading hidden">Personal</legend>
     <div class="container form-group">
       <ol class="grid">
         <li class="gi-1">
+          <!-- After trying a lot of different approaches with form validation using latest Angular, one of the smoothest ways is to use native required, and i have coupled it with doing some form validation in a "Reactive Angular Style", i have spent a lot of time on with the official docs  -->
           <label for="firstName" class="reg-form__label-heading">First name</label>
           <input type="text" placeholder="FIRST NAME" id="name" class="reg-form__input" formControlName="name" required>
         </li>
         <li class="gi-2">
           <label for="lastName" class="reg-form__label-heading">Last name</label>
-          <input type="text" placeholder="LAST NAME" id="lastName" class="reg-form__input" formControlName="name.last" required>
+          <input type="text" placeholder="LAST NAME" id="lastName" class="reg-form__input" formControlName="lastName" required>
         </li>
         <li class="gi-3">
           <label for="birthdate" class="reg-form__label-heading">Date of birth</label>
@@ -38,17 +39,17 @@
         </li>
         <li class="gi-5">
           <label for="address" class="reg-form__label-heading">Address</label>
-          <input type="text" placeholder="ADDRESS" id="address" class="reg-form__input" formControlName="street" required>
+          <input type="text" placeholder="ADDRESS" id="address" class="reg-form__input" formControlName="street">
         </li>
       </ol>
       <ol class="grid grid-half">
         <li class="gi-6">
           <label for="postCode" class="reg-form__label-heading">Post code</label>
-          <input type="text" placeholder="POST CODE" id="postCode" class="reg-form__input" required>
+          <input type="text" placeholder="POST CODE" id="postCode" class="reg-form__input" formControlName="postCode">
         </li>
         <li class="gi-7">
           <label for="city" class="reg-form__label-heading">City</label>
-          <input type="text" placeholder="CITY" id="city" class="reg-form__input" required>
+          <input type="text" placeholder="CITY" id="city" class="reg-form__input" formControlName="city" required>
         </li>
         <li class="gi-8">
           <label for="country" class="reg-form__label-heading">Country</label>
