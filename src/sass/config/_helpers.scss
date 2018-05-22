@@ -20,11 +20,16 @@
 }
 
 // I wanted to have a pure CSS layer on top of the background images
-.layer {
-  background-color: rgba(0, 0, 0 , .6);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
+// So after doing some more work with the background png images
+// i saw that i missed to include the overlay in PhotoShop
+// I managed to shrink the tablet png from 3MB to 900kb (using TinyPNG)
+// So i will comment out this uneccessary layer class, and keep
+// the code for reference!
+// .layer {
+//   background-color: rgba(0, 0, 0 , .6);
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+// }

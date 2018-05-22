@@ -1,22 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
-
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { RegFormComponent } from './reg-form/reg-form.component';
+import { FormValuesComponent } from './form-values/form-values.component';
 
 
-@NgModule({
+
+@NgModule({ // Binds to the ng module
   declarations: [
     AppComponent,
-    RegFormComponent,
+    FormValuesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule // <-- #2 add to @NgModule imports
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

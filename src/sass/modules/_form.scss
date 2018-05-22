@@ -1,49 +1,284 @@
 .form {
-  width: 90%;
-  max-width: 960px;
+  max-width: 900px;
   margin: auto;
+
+  @include media-tablet {
+    padding: 10px 20px 10px;
+    outline: none;
+    border: 2px solid #223a26;
+    // Form border glow effect
+    outline: none;
+            box-shadow: 0 0 10px #223a26;
+       -moz-box-shadow: 0 0 10px #223a26;
+    -webkit-box-shadow: 0 0 10px #223a26;
+  }
+
 
   &__main-heading {
     font-size: rem(18px);
     font-weight: $font--bold;
     letter-spacing: 1px;
     margin-bottom: 20px;
-  }
 
+
+    @include media-desktop {
+      font-size: rem(50px);
+      letter-spacing: -1px;
+      font-weight: $font--x-bold;
+      // Stretch the main heading
+              transform: scale(1, 1.5);
+      -webkit-transform: scale(1, 1.5);
+    }
+  }
+  /*
+  TODO: This selector name is confusing,
+  it only handle the elements margin and is
+  named heading, below main-heading
+  */
   &__heading {
-    margin-top: 35px;
     margin-bottom: 20px;
+
+    @include media-tablet {
+      margin-bottom: 5px;
+    }
   }
 
   &__intro {
-    font-size: rem(12px)
+    font-size: rem(12px);
   }
 
   &__label {
     display: block;
-    font-size: rem(8px);
+    font-size: rem(7px);
     margin-bottom: 2px;
     &--radio {
-      display: inline-block;
       font-size: rem(10px);
     }
   }
-
-  &__input {
-    border: 2px solid $green;
-    padding: 10px 5px;
-    font-size: 0.7rem;
+  &__input--country {
+    font-size: .7rem;
     background: none;
     color: $white;
     width: 100%;
 
-    &::placeholder {
-      color: red;
-      z-index: 5;
+    option {
+      // padding here must be different, else the select box gets to tall
+      // This was not z-browser frendly
+      padding: 13px 5px;
+      background: $black;
     }
+    @media (min-width: 0px) and (max-width: 500px) { font-size: 16px;}
+  }
+
+  &__input {
+    padding: 15px 5px;
+    font-size: .7rem;
+    background: none;
+    color: $white;
+    width: 100%;
 
     &--radio {
       color: $black;
+      background: $black;
     }
+
+    &::placeholder {
+      color: $white;
+      z-index: 5;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $white;
+      opacity: 1 !important; /* for older chrome versions. may no longer apply. */
+    }
+
+    &:-moz-placeholder {
+      /* Firefox 18- */
+      color: $white;
+      opacity: 1 !important;
+    }
+
+    &::-moz-placeholder {
+      /* Firefox 19+ */
+      color: $white;
+      opacity: 1 !important;
+    }
+
+    &:-ms-input-placeholder {
+      color: $white;
+    }
+
+    &[type=text]:focus, textarea:focus {
+      box-shadow: 0 0 10px rgba(244, 244, 238, 1);
+      border: 2px solid rgba(244, 244, 238, 1);
+    }
+
   }
+}
+
+
+
+/* Nesting the -- & __ modifier class extensions
+ within the form works good becase the selector output is
+ not treated as descendants (e.g form form--label, instead they are output as independent selecors
+which would not be the case here, i prefer it this way, but come to think of it,
+perhaps in a larger project, it would be better to associate it with the form parent
+*/
+
+
+.radio-btn:nth-child(2) {
+  margin-top: 12px;
+}
+
+
+
+
+/* Custom dropdown */
+.custom-dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-dropdown {
+          appearance: none;
+  /*for firefox*/
+     -moz-appearance: none;
+  /*for chrome*/
+  -webkit-appearance: none; /* hide default arrow in chrome OSX */
+}
+
+/*for IE10*/
+select::-ms-expand {
+  display: none;
+}
+
+// Fallback for hiding HTML5 outter spinner on FF!
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+.custom-dropdown::before,
+  .custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after {
+  /*  Custom dropdown arrow */
+  content: "\2304"; // Using unicode arrow for x browser comp. But prop should have used SVG!
+  color: $white;
+  height: 1em;
+  font-size: 1rem;
+  -webkit-transform: scale(2,1); /* Safari and Chrome */
+     -moz-transform: scale(2,1); /* Firefox */
+      -ms-transform: scale(2,1); /* IE 9 */
+       -o-transform: scale(2,1); /* Opera */
+          transform: scale(2,1); /* W3C */
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+// Checkmark container must be relative
+.custom-checkmark {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+// In order for pseudo elements to be placed absolute
+.custom-checkmark:before,
+.custom-checkmark::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+// Which they must to be able to place them properly within their container
+.custom-checkmark::after {
+  content: "\2713";
+  border-radius: 100%;
+  border: 1px solid $white;
+  height: 15px;
+  width: 15px;
+  right: 1em;
+  top: 50%;
+  margin-top: -.8em;
+  padding: 5px;
+}
+
+// Styles for the custom radio buttons
+// Radio buttons are very very hard to style, a lot of
+// This is from a Code Pen.
+// Probably the best way to go about this is to switch with SVG,
+// My style here are pure CSS tho
+.radio-btn {
+  position: relative;
+}
+
+.radio-btn label {
+  position: relative;
+  padding: 10px 20px 20px 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+.check {
+  display: block;
+  position: absolute;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  top: 3px;
+  left: 10px;
+	z-index: 5;
+}
+
+input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+ul li:hover .check {
+  border: 2px solid #FFFFFF;
+}
+
+// The select element has a default rounded border-radius that do not want to behave
+// It can be reset prefixing the border-radius prop with -webkit-
+select {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  padding-left: 5px;
+  height: 47px;
+}
+.check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 5px;
+  width: 5px;
+  top: 3px;
+	left: 3px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 2px solid #A9A9A9;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: $white;
+}
+
+input[type=radio]:checked ~ label{
+  color: #A9A9A9;
 }

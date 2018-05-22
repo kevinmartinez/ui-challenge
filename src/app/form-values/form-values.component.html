@@ -1,0 +1,63 @@
+  <!-- Using indentation of 2 spaces as 1 tab :) Prefer shorter indentation, mostly because of width readability -->
+  <form novalidate action="" method="post" id="form" class="form" [formGroup]="form">
+
+    <header class="form__heading center">
+      <h1 class="form__main-heading">Register</h1>
+      <p class="form__intro"> USER please finalise your registration before you can proceed</p>
+    </header>
+    <!-- Group label and input fields that "belong" together -->
+    <fieldset form="form" class="form__fieldset">
+      <!-- Heading used for screen readers, will be hidden for display with CSS -->
+      <legend class="hidden">Personal</legend>
+        <!-- I wrap my form fields in an Ordered List so that it is semantic,
+          i also want to use it as our CSS Grid container, keeping the markup down.
+          I am using quite a few helper divs,
+          there is a  lot of work to do on plenty of Angular & JavaScript/TS logic -->
+        <ol class="grid">
+          <!-- Here i use the ngFor Angular loop to bind the properties from the user data model ts file -->
+          <li *ngFor="let prop of objectProps"  [attr.class]="prop.gridClass">
+            <label [attr.for]="prop.key" class="form__label">{{prop.label}}</label>
+          <!-- Using the ngSwitch selector to conditionally seperate parts of the form field, based on the input elements type attribute, through the user-model.ts mock data file  -->
+          <div [ngSwitch]="prop.type">
+            <!-- Here i am using an inline Angulr CSS class conditional. It is very verbose and i could not get some part of the logic solved -->
+            <span [ngClass]="{
+              'custom-dropdown' : prop.label === 'Country' || prop.label === 'Country Code' && !form.get(prop.key).valid,
+              'custom-checkmark' :  prop.label !== 'Country Code' && prop.label !== 'Country' && form.get(prop.key).valid && !form.get(prop.key).pristine
+            }">
+            <!-- <span [ngClass]="{'custom-dropdown': prop.label === 'Country' || prop.label === 'Country Code', 'error-field': error}"> -->
+            <input *ngSwitchCase="prop.type === 'text' || prop.type === 'number'|| prop.type === 'date' ? prop.type : '' "
+            [formControlName]="prop.key"
+            [id]="prop.key" [type]="prop.type"
+            [placeholder]="prop.placeholder"
+            class="form__input" required>
+              <!-- Gender field, wrapped -->
+              <div *ngSwitchCase="'radio'">
+                  <ul>
+                      <li class="radio-btn">
+                        <input type="radio" id="male" value="male" name="gender" class="form__input--radio">
+                        <label for="male" class="form__label--radio">Male</label>
+                        <span class="check"></span>
+                      </li>
+                      <li class="radio-btn">
+                        <input type="radio" id="female" value="female" name="gender" class="form__input--radio">
+                        <label for="female" class="form__label--radio">Female</label>
+                        <span class="check"></span>
+                      </li>
+                    </ul>
+                </div>
+                <!-- Country Field -->
+                <div *ngSwitchCase="'select'">
+                  <select [formControlName]="prop.key" class="form__input--country" required>
+                    <option *ngFor="let option of prop.options">
+                      {{ option.label }}
+                    </option>
+                  </select>
+                </div>
+              </span> <!-- end span-->
+            </div>
+          </li>
+        </ol>
+    </fieldset>
+    <button type="submit" class="btn">Complete registration</button>
+    <p class="center">You will then confirm your deposit</p>
+  </form>

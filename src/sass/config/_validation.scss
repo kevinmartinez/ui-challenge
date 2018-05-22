@@ -21,26 +21,13 @@
   border: 10px solid #a94442;
 }
 
-.focus {
-  border: 2px solid white;
-}
-
-.success {
-  border: 2px solid green;
-}
-
-.ng-valid[required], .ng-valid.required {
-  border: 2px solid #42a948; /* green */
-}
-
-.ng-pristine.required, .ng-pristine[required] {
-  border: 2px solid #000;
+// Initial form border styles
+.ng-pristine.required, .ng-pristine[required], .ng-dirty {
+  outline: none;
+  border-color: $green;
+  box-shadow: 0 0 20px $green;
 }
 
 .ng-invalid:not(form) {
-  border: 2px solid #a94442; /* red */
-}
-
-input:focus {
-  border: 2px solid white;;
+  border: 2px solid #a94442;
 }

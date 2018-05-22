@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { user } from './user-model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GiG | Register';
+  // Bind to user model
+  user;
+  constructor() {
+    this.user = user;
+  }
 }

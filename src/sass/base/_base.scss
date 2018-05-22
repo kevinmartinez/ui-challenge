@@ -4,15 +4,21 @@
 // normalize file goes here
 * {
   box-sizing: border-box;
+  padding: 0;
+}
+
+html, body {
+  height:100%
 }
 
 body {
   background-color: $black;
-  background-image: url('../app/img/kaboo.png');
-  @media (min-width: 560px) and (orientation: landscape) {
-    background: red;
-    border: 50px solid yellow;
-}
+  display: flex; // Easiest way to vertical align on all the devices was with the help of FlexBox
+  align-items: center;
+  justify-content: center;
+  // Managed to optimize the mobile background from 1.1mb to 326kb and tested the difference with two retina screens
+  // It looks just as sharp and crispy as the original PS export
+  background-image: url('../app/img/mobile-bg-opti.png');
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
@@ -22,12 +28,34 @@ body {
   color: $white;
   margin: 0;
   text-transform: uppercase;
+  // TODO: Create a Sass mixin for landscape/tablet orientation
+  // TODO: Create a Sass mixin or function for the background properties
+  // it gets very verbose and !DRY
+  @include media-tablet {
+    background-image: url('../app/img/tablet-bg-opti.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    background-attachment: fixed;
+    background-position-y: 1px;
+  }
+
+  @include media-desktop {
+    background-image: url('../app/img/desktop-bg-opti.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    background-attachment: fixed;
+    background-position-y: 1px;
+  }
+
 }
 
-button, input, select, textarea {
+button, input, select, textarea, option {
   font-family: inherit;
   font-size: 100%;
   text-transform: uppercase;
+  padding: 0;
 }
 
 fieldset {
@@ -43,3 +71,33 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+/*
+In order to avoid zooming on input fields in iOS for example,
+the font size on input elements need to be set to at least 16px!
+I really dislike when web apps get this zoom effect,
+because often the user have zoom out with their fingers
+really bad user experience imo. I put all the fallbacks here as reference,
+they are in a media query as well to minimize the 16px form size
+*/
+@media (min-width: 0px) and (max-width: 500px) {
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select:focus,
+  textarea {
+    font-size: 16px;
+  }
+}
+

@@ -1,6 +1,16 @@
-// Mixins
+// I place the Sass mixins in an own file, perhaps this should be moved together with variables in a config file
+
+// Tablet and landscape media query mixin, takes its Sass variables from the variables file
 @mixin media-tablet {
-  @media (min-width: #{$tablet}) {
+  @media (min-width: #{$tablet}) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// Desktop
+@mixin media-desktop {
+  // Desktop variable set to 1224px
+  @media (min-width: #{$desktop}) {
     @content;
   }
 }
@@ -21,6 +31,7 @@
   display:     grid;
 }
 
+// mixin for backwards compat with IE11, i had to do some research to make sure of using some old IE11 Grid values, some that are not fixed with a tool like Autoprefixer, i tested IE11 quite early, and it took some time but most of the quirks should work, i am sure there are a lot that can be done.
 @mixin grid-child ($col-start, $col-end, $row-start, $row-end) {
   -ms-grid-column: $col-start;
   -ms-grid-column-span: $col-end - $col-start;
